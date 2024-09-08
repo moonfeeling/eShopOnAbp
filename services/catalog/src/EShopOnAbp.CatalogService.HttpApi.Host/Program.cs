@@ -23,11 +23,12 @@ public class Program
             Log.Information($"Starting {assemblyName}.");
             var builder = WebApplication.CreateBuilder(args);
             builder.Host
+                .AddAppSettingsSecretsJson()
                 .UseAutofac()
                 .UseSerilog();
             
             builder.AddServiceDefaults();
-            builder.WebHost.ConfigureKestrel(options =>
+            /*builder.WebHost.ConfigureKestrel(options =>
             {
                 options.ListenAnyIP(5054, listenOptions =>
                 {
@@ -37,7 +38,7 @@ public class Program
                 {
                     listenOptions.Protocols = HttpProtocols.Http2;
                 });
-            });
+            });*/
 
             await builder.AddApplicationAsync<CatalogServiceHttpApiHostModule>();
             var app = builder.Build();

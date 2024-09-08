@@ -135,7 +135,7 @@
       "Identity": {
         "Destinations": {
           "destination1": {
-            "Address": "http://identityService",
+            "Address": "https://localhost:44351",
             "MetaData": {
               "PublicAddress": "https://identity.eshoponabp.dev"
             }
@@ -145,7 +145,7 @@
       "Administration": {
         "Destinations": {
           "destination1": {
-            "Address": "http://administrationService",
+            "Address": "https://localhost:44353",
             "MetaData": {
               "PublicAddress": "https://admininstration.eshop.dev"
             }
@@ -155,7 +155,7 @@
       "catalogCluster": {
         "Destinations": {
           "destination1": {
-            "Address": "http://catalogService",
+            "Address": "https://localhost:44354",
             "MetaData": {
               "PublicAddress": "https://catalog.eshoponabp.dev"
             }
@@ -165,7 +165,7 @@
       "Basket": {
         "Destinations": {
           "destination1": {
-            "Address": "http://basketService",
+            "Address": "https://localhost:44355",
             "MetaData": {
               "PublicAddress": "https://basket.eshoponabp.dev"
             }
@@ -175,7 +175,7 @@
       "Ordering": {
         "Destinations": {
           "destination1": {
-            "Address": "http://orderingService",
+            "Address": "https://localhost:44356",
             "MetaData": {
               "PublicAddress": "https://ordering.eshoponabp.dev"
             }
@@ -185,7 +185,7 @@
       "CmsKit": {
         "Destinations": {
           "destination1": {
-            "Address": "http://cmsKitService",
+            "Address": "https://localhost:44358",
             "MetaData": {
               "PublicAddress": "https://cmskit.eshoponabp.dev"
             }
@@ -195,7 +195,7 @@
       "Payment": {
         "Destinations": {
           "destination1": {
-            "Address": "http://paymentService",
+            "Address": "https://localhost:44357",
             "MetaData": {
               "PublicAddress": "https://payment.eshoponabp.dev"
             }

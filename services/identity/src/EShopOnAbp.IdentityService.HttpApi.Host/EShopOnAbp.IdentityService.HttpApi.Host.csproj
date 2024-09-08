@@ -31,5 +31,9 @@
     <EmbeddedResource Remove="Logs\**" />
     <None Remove="Logs\**" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="DbMigrations\KeycloakDataSeeder.cs" />
+  </ItemGroup>
   
 </Project>

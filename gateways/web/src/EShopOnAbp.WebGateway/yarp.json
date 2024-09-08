@@ -35,19 +35,19 @@
         ]
       },
       "FeatureManagement": {
-        "ClusterId": "feature-management-cluster",
+        "ClusterId": "Administration",
         "Match": {
           "Path": "/api/feature-management/{**everything}"
         }
       },
       "PermissionManagement": {
-        "ClusterId": "permission-management-cluster",
+        "ClusterId": "Administration",
         "Match": {
           "Path": "/api/permission-management/{**everything}"
         }
       },
       "SettingManagement": {
-        "ClusterId": "setting-management-cluster",
+        "ClusterId": "Administration",
         "Match": {
           "Path": "/api/setting-management/{**everything}"
         }

@@ -13,6 +13,7 @@ using Volo.Abp.Caching.StackExchangeRedis;
 using Volo.Abp.DistributedLocking;
 using Volo.Abp.EventBus.RabbitMq;
 using Volo.Abp.Modularity;
+using Volo.Abp.MultiTenancy;
 
 namespace EShopOnAbp.Shared.Hosting.Microservices;
 
@@ -31,6 +32,22 @@ public class EShopOnAbpSharedHostingMicroservicesModule : AbpModule
     {
         Microsoft.IdentityModel.Logging.IdentityModelEventSource.ShowPII = true;
         var configuration = context.Services.GetConfiguration();
+
+        Configure<AbpMultiTenancyOptions>(options =>
+        {
+            options.IsEnabled = true;
+        });
+        /*Configure<AbpAspNetCoreMultiTenancyOptions>(options =>
+        {
+            options.TenantKey = "MyTenantKey";
+            options.MultiTenancyMiddlewareErrorPageBuilder = async (context, exception) =>
+            {
+                // Handle the exception.
+
+                // Return true to stop the pipeline, false to continue.
+                return true;
+            };
+        });*/
 
         Configure<AbpDistributedCacheOptions>(options =>
         {
