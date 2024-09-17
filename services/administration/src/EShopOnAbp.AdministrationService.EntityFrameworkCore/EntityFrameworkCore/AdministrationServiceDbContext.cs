@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
-using Volo.Abp.BlobStoring.Database;
-using Volo.Abp.BlobStoring.Database.EntityFrameworkCore;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.PermissionManagement;
@@ -26,8 +24,7 @@ namespace EShopOnAbp.AdministrationService.EntityFrameworkCore
         : AbpDbContext<AdministrationServiceDbContext>,
         IPermissionManagementDbContext,
         ISettingManagementDbContext,
-        IAuditLoggingDbContext,
-        IBlobStoringDbContext
+        IAuditLoggingDbContext
     {
         public AdministrationServiceDbContext(DbContextOptions<AdministrationServiceDbContext> options)
             : base(options)
@@ -39,8 +36,6 @@ namespace EShopOnAbp.AdministrationService.EntityFrameworkCore
         public DbSet<Setting> Settings { get; set; }
         public DbSet<SettingDefinitionRecord> SettingDefinitionRecords { get; }
         public DbSet<AuditLog> AuditLogs { get; set; }
-        public DbSet<DatabaseBlobContainer> BlobContainers { get; set; }
-        public DbSet<DatabaseBlob> Blobs { get; set; }
         public DbSet<PermissionGroupDefinitionRecord> PermissionGroups { get; set; }
         public DbSet<PermissionDefinitionRecord> Permissions { get; set; }
 
@@ -51,7 +46,6 @@ namespace EShopOnAbp.AdministrationService.EntityFrameworkCore
             builder.ConfigurePermissionManagement();
             builder.ConfigureSettingManagement();
             builder.ConfigureAuditLogging();
-            builder.ConfigureBlobStoring();
         }
     }
 }

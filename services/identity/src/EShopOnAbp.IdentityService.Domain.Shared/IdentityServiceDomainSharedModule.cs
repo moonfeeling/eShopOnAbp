@@ -12,10 +12,11 @@ namespace EShopOnAbp.IdentityService
         )]
     public class IdentityServiceDomainSharedModule : AbpModule
     {
-        public override void PreConfigureServices(ServiceConfigurationContext context)
+        //以下注释代码多余：IdentityServiceEfCoreEntityExtensionMappings类中有调用，其又在IdentityServiceEntityFrameworkCoreModule模块类中被预配置
+        /*public override void PreConfigureServices(ServiceConfigurationContext context)
         {
             IdentityServiceModuleExtensionConfigurator.Configure();
-        }
+        }*/
 
         public override void ConfigureServices(ServiceConfigurationContext context)
         {

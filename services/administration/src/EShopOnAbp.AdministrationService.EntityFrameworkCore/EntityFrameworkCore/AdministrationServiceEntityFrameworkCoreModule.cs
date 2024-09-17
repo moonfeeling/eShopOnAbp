@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.Extensions.DependencyInjection;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
-using Volo.Abp.BlobStoring.Database.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore.PostgreSql;
 using Volo.Abp.Modularity;
@@ -15,8 +14,7 @@ namespace EShopOnAbp.AdministrationService.EntityFrameworkCore
         typeof(AbpEntityFrameworkCorePostgreSqlModule),
         typeof(AbpPermissionManagementEntityFrameworkCoreModule),
         typeof(AbpSettingManagementEntityFrameworkCoreModule),
-        typeof(AbpAuditLoggingEntityFrameworkCoreModule),
-        typeof(BlobStoringDatabaseEntityFrameworkCoreModule)
+        typeof(AbpAuditLoggingEntityFrameworkCoreModule)
         )]
     public class AdministrationServiceEntityFrameworkCoreModule : AbpModule
     {
@@ -27,7 +25,6 @@ namespace EShopOnAbp.AdministrationService.EntityFrameworkCore
                 options.ReplaceDbContext<IPermissionManagementDbContext>();
                 options.ReplaceDbContext<ISettingManagementDbContext>();
                 options.ReplaceDbContext<IAuditLoggingDbContext>();
-                options.ReplaceDbContext<IBlobStoringDbContext>();
 
                 options.AddDefaultRepositories(includeAllEntities: true);
             });

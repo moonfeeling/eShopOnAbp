@@ -94,5 +94,5 @@ services:
     - Kestrel__Certificates__Default__Path=../../../../etc/dev-cert/localhost.pfx
     - Kestrel__Certificates__Default__Password=8b6039b6-c67a-448b-977b-0ce6d3fcfd49
 
-- name: keycloak-seeder
-  project: shared/EShopOnAbp.Keycloak.DbMigrator/EShopOnAbp.Keycloak.DbMigrator.csproj    
+# - name: keycloak-seeder
+  # project: shared/EShopOnAbp.Keycloak.DbMigrator/EShopOnAbp.Keycloak.DbMigrator.csproj    
