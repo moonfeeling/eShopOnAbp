@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using StackExchange.Redis;
 using Volo.Abp.AspNetCore.Authentication.JwtBearer;
 using Volo.Abp.AspNetCore.Authentication.JwtBearer.DynamicClaims;
+using Volo.Abp.AspNetCore.Security.Claims;
 using Volo.Abp.BackgroundJobs.RabbitMQ;
 using Volo.Abp.Caching;
 using Volo.Abp.Caching.StackExchangeRedis;
@@ -14,6 +15,7 @@ using Volo.Abp.DistributedLocking;
 using Volo.Abp.EventBus.RabbitMq;
 using Volo.Abp.Modularity;
 using Volo.Abp.MultiTenancy;
+using Volo.Abp.Security.Claims;
 
 namespace EShopOnAbp.Shared.Hosting.Microservices;
 
@@ -32,6 +34,12 @@ public class EShopOnAbpSharedHostingMicroservicesModule : AbpModule
     {
         Microsoft.IdentityModel.Logging.IdentityModelEventSource.ShowPII = true;
         var configuration = context.Services.GetConfiguration();
+
+        context.Services.Configure<AbpClaimsMapOptions>(options =>
+        {
+            options.Maps.Remove("name");
+            options.Maps.Add("preferred_username", () => AbpClaimTypes.UserName);
+        });
 
         Configure<AbpMultiTenancyOptions>(options =>
         {
